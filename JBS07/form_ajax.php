@@ -35,19 +35,19 @@
         <!-- hasil akan tampil disini -->
     </div>
     <script>
-        $(document).ready(function() {
-            $("#myForm").submit(function(e) {
-                e.preventDefault(); //mencegah pengiriman form secara default
-
+        $(document).ready(function(){
+            $("#myForm").submit(function(e){
+                e.preventDefault();//mencegah pengiriman form secara default
+                
                 //mengumpulkan data form
                 var formData = $("#myForm").serialize();
 
                 //kirim data ke server PHP
                 $.ajax({
                     url: "proses_lanjut.php",
-                    type: "POST",
+                    type: "POST",   
                     data: formData,
-                    success: function(response) {
+                    success: function(response){
                         //Tampilkan hasil dari server div "hasil"
                         $("#hasil").html(response);
                     }
@@ -56,5 +56,4 @@
         });
     </script>
 </body>
-
 </html>
