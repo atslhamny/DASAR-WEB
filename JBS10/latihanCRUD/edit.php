@@ -15,7 +15,7 @@
     $row = mysqli_fetch_assoc($result);
     mysqli_close($koneksi);
     ?>
-    <div class="container mt-4">
+    <div class="container">
         <h2>Edit Data Anggota</h2>
 
         <form action="proses.php?aksi=ubah" method="post">

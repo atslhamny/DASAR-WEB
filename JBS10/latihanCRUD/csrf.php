@@ -7,8 +7,8 @@ if (empty($_SESSION['csrf_token'])) {
 }
 
 $headers = apache_request_headers();
-if (isset($headers['csrf-Token'])) {
-    if ($headers['csrf-Token'] !== $_SESSION['csrf_token']) {
+if (isset($headers['Crsf-Token'])) {
+    if ($headers['Crsf-Token'] !== $_SESSION['csrf_token']) {
         exit(json_encode(['error' => 'Wrong CSRF token.']));
     }
 } else {

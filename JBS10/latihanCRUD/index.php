@@ -16,7 +16,7 @@ include 'auth.php';
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-    <style>
+    <!-- <style>
         .form-group {
             margin-bottom: 1rem;
         }
@@ -30,7 +30,7 @@ include 'auth.php';
             background-color: #28a745;
             color: white;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -40,60 +40,64 @@ include 'auth.php';
     </nav>
 
     <!-- Main Content -->
-    <div class="container mt-4">
-        <h2 class="text-center mb-4">Data Anggota</h2>
+    <div class="container">
+        <h2 align="center" style="margin: 30px;">Data Anggota</h2>
 
         <!-- Form Input -->
-        <form method="post" id="form-data">
-            <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="hidden" name="id" id="id">
-                <input type="text" name="nama" id="nama" class="form-control">
-                <p class="text-danger" id="err_nama"></p>
-            </div>
-
-            <div class="form-group">
-                <label>Jenis Kelamin</label>
-                <div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="jenkel1" name="jenis_kelamin" value="L" class="form-check-input">
-                        <label class="form-check-label" for="jenkel1">Laki-laki</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="jenkel2" name="jenis_kelamin" value="P" class="form-check-input">
-                        <label class="form-check-label" for="jenkel2">Perempuan</label>
+        <form method="post" class="form-data" id="form-data">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="hidden" name="id" id="id">
+                        <input type="text" name="nama" id="nama" class="form-control" required="true">
+                        <p class="text-danger" id="err_nama"></p>
                     </div>
                 </div>
-                <p class="text-danger" id="err_jenis_kelamin"></p>
-            </div>
 
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <textarea name="alamat" id="alamat" class="form-control" rows="3"></textarea>
-                <p class="text-danger" id="err_alamat"></p>
-            </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Jenis Kelamin</label><br>
+                        <input type="radio" name="jenis_kelamin" id="jenkel1" value="L" required="true"> Laki-laki
+                        <input type="radio" name="jenis_kelamin" id="jenkel2" value="P"> Perempuan
+                    </div>
+                    <p class="text-danger" id="err_jenis_kelamin"></p>
+                </div>
 
-            <div class="form-group">
-                <label for="no_telp">No Telepon</label>
-                <input type="number" name="no_telp" id="no_telp" class="form-control">
-                <p class="text-danger" id="err_no_telp"></p>
-            </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea name="alamat" id="alamat" class="form-control" required="true"></textarea>
+                        <p class="text-danger" id="err_alamat"></p>
+                    </div>
+                </div>
 
-            <button type="button" id="simpan" class="btn btn-primary">
-                <i class="fa fa-save"></i> Simpan
-            </button>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>No Telepon</label>
+                        <input type="number" name="no_telp" id="no_telp" class="form-control" required="true">
+                        <p class="text-danger" id="err_no_telp"></p>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <button type="button" name="simpan" id="simpan" class="btn btn-primary">
+                            <i class="fa fa-save"></i> Simpan
+                        </button>
+                    </div>
+                </div>
+            </div>
         </form>
 
         <!-- Table Data -->
-        <div class="mt-4">
             <div class="data"></div>
-        </div>
     </div>
 
     <!-- Footer -->
     <footer class="text-center py-3">
         <p class="mb-0">&copy; <?php echo date('Y'); ?> Copyright:
-            <a href="https://google.com/">Desain Dan Pemrograman Web</a>
+            <a href="https://google.com/">Punya Atsilah</a>
         </p>
     </footer>
 
@@ -151,7 +155,7 @@ include 'auth.php';
                 if (nama != "" && alamat != "" && (document.getElementById("jenkel1").checked == true || document.getElementById("jenkel2").checked == true) && no_telp != "") {
                     $.ajax({
                         type: 'POST',
-                        url: 'form-action.php',
+                        url: 'form_action.php',
                         data: data,
                         success: function() {
                             $('.data').load('data.php');
