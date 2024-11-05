@@ -1,23 +1,18 @@
 <?php
 session_start();
+session_start();
 include 'koneksi.php';
 include 'csrf.php';
 
-$id = $_POST['id'];
-$query = "SELECT * FROM anggota WHERE id=? ORDER BY id DESC";
-$sql = $db1->prepare($query);
-$sql->bind_param('i', $id);
+$id = stripslashes(strip_tags(htmlspecialchars($_POST['id'], ENT_QUOTES)));
+
+$query = "SELECT * FROM anggota WHERE id = ?";
+$sql = $dbl->prepare($query);
+$sql->bind_param("i", $id);
 $sql->execute();
-$res1 = $sql->get_result();
+$result = $sql->get_result();
+$data = $result->fetch_assoc();
 
-while ($row = $res1->fetch_assoc()) {
-    $sh['id'] = $row["id"];
-    $sh['nama'] = $row["nama"];
-    $sh['jenis_kelamin'] = $row["jenis_kelamin"];
-    $sh['alamat'] = $row["alamat"];
-    $sh['no_telp'] = $row["no_telp"];
-}
+echo json_encode($data);
 
-echo json_encode($sh);
-
-$db1->close();
+$dbl->close();

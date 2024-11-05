@@ -11,15 +11,15 @@
     </thead>
     <tbody>
         <?php
-        include 'koneksi.php'; // Pastikan koneksi sudah di-include
+        include 'koneksi.php';
         $no = 1;
         $query = "SELECT * FROM anggota ORDER BY id DESC";
-        $sql = $db1->prepare($query); // Ubah $sdb menjadi $db1
+        $sql = $dbl->prepare($query);
         $sql->execute();
-        $res1 = $sql->get_result();
+        $result = $sql->get_result();
 
-        if ($res1->num_rows > 0) {
-            while ($row = $res1->fetch_assoc()) {
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 $id = $row['id'];
                 $nama = $row['nama'];
                 $jenis_kelamin = ($row['jenis_kelamin'] == 'L') ? 'Laki-Laki' : 'Perempuan';
@@ -33,16 +33,20 @@
                     <td><?php echo $alamat; ?></td>
                     <td><?php echo $no_telp; ?></td>
                     <td>
-                        <button id="<?php echo $id; ?>" class="btn btn-success btn-sm edit_data"> <i class="fa fa-edit"></i></button>
-                        <button id="<?php echo $id; ?>" class="btn btn-danger btn-sm hapus_data"> <i class="fa fa-trash"></i></button>
+                        <button id="<?php echo $id; ?>" class="btn btn-success btn-sm edit_data"> <i class="fa fa-edit"></i> Edit </button>
+                        <button id="<?php echo $id; ?>" class="btn btn-danger btn-sm hapus_data"> <i class="fa fa-trash"></i> Hapus </button>
                     </td>
                 </tr>
-            <?php }
-        } else { ?>
+            <?php
+            }
+        } else {
+            ?>
             <tr>
-                <td colspan='7'>Tidak ada data ditemukan</td>
+                <td colspan="7">Tidak ada data ditemukan</td>
             </tr>
-        <?php } ?>
+        <?php
+        }
+        ?>
     </tbody>
 </table>
 
@@ -53,7 +57,7 @@
 
     function reset() {
         document.getElementById("err_nama").innerHTML = "";
-        document.getElementById("err_jenis_kelamin").innerHTML = "";
+        document.getElementById("err_jenkel").innerHTML = "";
         document.getElementById("err_alamat").innerHTML = "";
         document.getElementById("err_no_telp").innerHTML = "";
     }
@@ -63,13 +67,14 @@
             scrollTop: 0
         }, 'slow');
         var id = $(this).attr('id');
+        console.log("ID yg dikirimke get_data", id); //DEBUG
         $.ajax({
             type: 'POST',
-            url: "get_data.php",
+            url: 'get_data.php',
             data: {
                 id: id
             },
-            dataType: 'json',
+            dataType: "json",
             success: function(response) {
                 reset();
                 $('html, body').animate({
@@ -91,23 +96,21 @@
         });
     });
 
+
     $(document).on('click', '.hapus_data', function() {
-    var id = $(this).attr('id');
-    $.ajax({
-        type: 'POST',
-        url: "hapus_data.php",
-        data: {
-            id: id
-        },
-        success: function(response) {
-            var data = JSON.parse(response);
-            if (data.success) {
+        var id = $(this).attr('id');
+        $.ajax({
+            type: 'POST',
+            url: "hapus_data.php",
+            data: {
+                id: id
+            },
+            success: function() {
                 $('.data').load("data.php");
+            },
+            error: function(response) {
+                console.log(response.responseText);
             }
-        },
-        error: function(response) {
-            console.log(response.responseText);
-        }
-        });
-    });
+        })
+    })
 </script>
