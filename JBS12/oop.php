@@ -1,22 +1,22 @@
 <?php
-class Car
-{
-    public $brand;
+// class Car
+// {
+//     public $brand;
 
-    public function startEngine()
-    {
-        echo "Engine started!";
-    }
-}
+//     public function startEngine()
+//     {
+//         echo "Engine started!";
+//     }
+// }
 
-$car1 = new Car();
-$car1->brand = "Toyota";
+// $car1 = new Car();
+// $car1->brand = "Toyota";
 
-$car2 = new Car();
-$car2->brand = "Honda";
+// $car2 = new Car();
+// $car2->brand = "Honda";
 
-$car1->startEngine();
-echo $car1->brand;
+// $car1->startEngine();
+// echo $car1->brand;
 
 // 1.2
 class Animal
@@ -106,42 +106,42 @@ $rectangle = new Rectangle(4, 5);
 printArea($circle);
 printArea($rectangle);
 
-// // 1.4
-// class Car
-// {
-//     private $model;
-//     private $color;
+// 1.4
+class Car
+{
+    private $model;
+    private $color;
 
-//     public function __construct($model, $color)
-//     {
-//         $this->model = $model;
-//         $this->color = $color;
-//     }
+    public function __construct($model, $color)
+    {
+        $this->model = $model;
+        $this->color = $color;
+    }
 
-//     public function getModel()
-//     {
-//         return $this->model;
-//     }
+    public function getModel()
+    {
+        return $this->model;
+    }
 
-//     public function setColor($color)
-//     {
-//         $this->color = $color;
-//     }
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
 
-//     public function getColor()
-//     {
-//         return $this->color;
-//     }
-// }
+    public function getColor()
+    {
+        return $this->color;
+    }
+}
 
-// $car = new Car("Toyota", "Blue");
+$car = new Car("Toyota", "Blue");
 
-// echo "Model: " . $car->getModel() . "<br>";
-// echo "Color: " . $car->getColor() . "<br>";
+echo "Model: " . $car->getModel() . "<br>";
+echo "Color: " . $car->getColor() . "<br>";
 
-// $car->setColor("Red");
+$car->setColor("Red");
 
-// echo "Update Color: " . $car->getColor() . "<br>";
+echo "Update Color: " . $car->getColor() . "<br>";
 
 // // 1.5
 // abstract class Shape
