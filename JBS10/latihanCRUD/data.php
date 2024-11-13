@@ -14,7 +14,7 @@
         include 'koneksi.php';
         $no = 1;
         $query = "SELECT * FROM anggota ORDER BY id DESC";
-        $sql = $dbl->prepare($query);
+        $sql = $db->prepare($query);
         $sql->execute();
         $result = $sql->get_result();
 
@@ -76,22 +76,23 @@
             },
             dataType: "json",
             success: function(response) {
-                reset();
-                $('html, body').animate({
-                    scrollTop: 30
-                }, 'slow');
-                document.getElementById("id").value = response.id;
-                document.getElementById("nama").value = response.nama;
-                document.getElementById("alamat").value = response.alamat;
-                document.getElementById("no_telp").value = response.no_telp;
-                if (response.jenis_kelamin == "L") {
-                    document.getElementById("jenkel1").checked = true;
+                if (response.error) {
+                    alert(response.error); // Menampilkan pesan jika ada error
                 } else {
-                    document.getElementById("jenkel2").checked = true;
+                    reset();
+                    document.getElementById("id").value = response.id;
+                    document.getElementById("nama").value = response.nama;
+                    document.getElementById("alamat").value = response.alamat;
+                    document.getElementById("no_telp").value = response.no_telp;
+                    if (response.jenis_kelamin == "L") {
+                        document.getElementById("jenkel1").checked = true;
+                    } else {
+                        document.getElementById("jenkel2").checked = true;
+                    }
                 }
             },
             error: function(response) {
-                console.log(response.responseText);
+                console.log("Error: ", response.responseText);
             }
         });
     });
