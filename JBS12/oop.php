@@ -225,28 +225,28 @@ $circle = new Circle(5, "Blue");
 echo "Area of Circle: " . $circle->calculateArea() . "<br>";
 echo "Color of Circle: " . $circle->getColor() . "<br>";
 
-// // 1.7
-// class Car
-// {
-//     private $brand;
+// 1.7
+class Car
+{
+    private $brand;
 
-//     public function __construct($brand)
-//     {
-//         echo "A new car is created.<br>";
-//         $this->brand = $brand;
-//     }
+    public function __construct($brand)
+    {
+        echo "A new car is created.<br>";
+        $this->brand = $brand;
+    }
 
-//     public function getBrand()
-//     {
-//         return $this->brand;
-//     }
+    public function getBrand()
+    {
+        return $this->brand;
+    }
 
-//     public function __destruct()
-//     {
-//         echo "The car is destroyed.<br>";
-//     }
-// }
+    public function __destruct()
+    {
+        echo "The car is destroyed.<br>";
+    }
+}
 
-// $car = new Car("Toyota");
+$car = new Car("Toyota");
 
-// echo "Brand: " . $car->getBrand() . "<br>";
+echo "Brand: " . $car->getBrand() . "<br>";
