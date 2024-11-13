@@ -64,47 +64,47 @@ $dog->sleep();
 $cat->meow();
 $dog->bark();
 
-// 1.3
-interface Shape
-{
-    public function calculateArea();
-}
-class Circle implements Shape
-{
-    private $radius;
+// // 1.3
+// interface Shape
+// {
+//     public function calculateArea();
+// }
+// class Circle implements Shape
+// {
+//     private $radius;
 
-    public function __construct($radius)
-    {
-        $this->radius = $radius;
-    }
+//     public function __construct($radius)
+//     {
+//         $this->radius = $radius;
+//     }
 
-    public function calculateArea()
-    {
-        return pi() * pow($this->radius, 2);
-    }
-}
+//     public function calculateArea()
+//     {
+//         return pi() * pow($this->radius, 2);
+//     }
+// }
 
-class Rectangle implements Shape
-{
-    private $width;
-    private $height;
+// class Rectangle implements Shape
+// {
+//     private $width;
+//     private $height;
 
-    public function calculateArea()
-    {
-        return $this->width * $this->height;
-    }
-}
+//     public function calculateArea()
+//     {
+//         return $this->width * $this->height;
+//     }
+// }
 
-function printArea(Shape $shape)
-{
-    echo "Area: " . $shape->calculateArea() . "<br>";
-}
+// function printArea(Shape $shape)
+// {
+//     echo "Area: " . $shape->calculateArea() . "<br>";
+// }
 
-$circle = new Circle(5);
-$rectangle = new Rectangle(4, 5);
+// $circle = new Circle(5);
+// $rectangle = new Rectangle(4, 5);
 
-printArea($circle);
-printArea($rectangle);
+// printArea($circle);
+// printArea($rectangle);
 
 // 1.4
 class Car
@@ -143,49 +143,49 @@ $car->setColor("Red");
 
 echo "Update Color: " . $car->getColor() . "<br>";
 
-// // 1.5
-// abstract class Shape
-// {
-//     abstract public function calculateArea();
-// }
+// 1.5
+abstract class Shape
+{
+    abstract public function calculateArea();
+}
 
-// class Circle extends Shape
-// {
-//     private $radius;
+class Circle extends Shape
+{
+    private $radius;
 
-//     public function __construct($radius)
-//     {
-//         $this->radius = $radius;
-//     }
-//     public function calculateArea()
-//     {
-//         return pi() * pow($this->radius, 2);
-//     }
-// }
+    public function __construct($radius)
+    {
+        $this->radius = $radius;
+    }
+    public function calculateArea()
+    {
+        return pi() * pow($this->radius, 2);
+    }
+}
 
-// class Rectangle extends Shape
-// {
-//     private $width;
-//     private $height;
+class Rectangle extends Shape
+{
+    private $width;
+    private $height;
 
-//     public function __construct($width, $height)
-//     {
+    public function __construct($width, $height)
+    {
 
-//         $this->width = $width;
-//         $this->height = $height;
-//     }
-//     public function calculateArea()
-//     {
-//         return $this->width * $this->height;
-//     }
-// }
+        $this->width = $width;
+        $this->height = $height;
+    }
+    public function calculateArea()
+    {
+        return $this->width * $this->height;
+    }
+}
 
 
-// $circle = new Circle(5);
-// $rectangle = new Rectangle(4, 6);
+$circle = new Circle(5);
+$rectangle = new Rectangle(4, 6);
 
-// echo "Area of Circle: " . $circle->calculateArea() . "<br>";
-// echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
+echo "Area of Circle: " . $circle->calculateArea() . "<br>";
+echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
 
 // // 1.6
 // interface Shape
