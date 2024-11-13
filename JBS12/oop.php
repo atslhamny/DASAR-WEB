@@ -18,26 +18,26 @@ $car2->brand = "Honda";
 $car1->startEngine();
 echo $car1->brand;
 
-// // 1.2
-// class Animal
-// {
-//     protected $name;
+// 1.2
+class Animal
+{
+    protected $name;
 
-//     public function __construct($name)
-//     {
-//         $this->name = $name;
-//     }
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-//     public function eat()
-//     {
-//         echo $this->name . " is eating.<br>";
-//     }
+    public function eat()
+    {
+        echo $this->name . " is eating.<br>";
+    }
 
-//     public function sleep()
-//     {
-//         echo $this->name . " is sleeping.<br>";
-//     }
-// }
+    public function sleep()
+    {
+        echo $this->name . " is sleeping.<br>";
+    }
+}
 
 // class Cat extends Animal
 // {
