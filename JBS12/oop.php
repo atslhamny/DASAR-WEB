@@ -18,51 +18,51 @@
 // $car1->startEngine();
 // echo $car1->brand;
 
-// 1.2
-class Animal
-{
-    protected $name;
+// // 1.2
+// class Animal
+// {
+//     protected $name;
 
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
+//     public function __construct($name)
+//     {
+//         $this->name = $name;
+//     }
 
-    public function eat()
-    {
-        echo $this->name . " is eating.<br>";
-    }
+//     public function eat()
+//     {
+//         echo $this->name . " is eating.<br>";
+//     }
 
-    public function sleep()
-    {
-        echo $this->name . " is sleeping.<br>";
-    }
-}
+//     public function sleep()
+//     {
+//         echo $this->name . " is sleeping.<br>";
+//     }
+// }
 
-class Cat extends Animal
-{
-    public function meow()
-    {
-        echo $this->name . " says meow!<br>";
-    }
-}
+// class Cat extends Animal
+// {
+//     public function meow()
+//     {
+//         echo $this->name . " says meow!<br>";
+//     }
+// }
 
-class Dog extends Animal
-{
-    public function bark()
-    {
-        echo $this->name . " says woof!<br>";
-    }
-}
+// class Dog extends Animal
+// {
+//     public function bark()
+//     {
+//         echo $this->name . " says woof!<br>";
+//     }
+// }
 
-$cat = new Cat("Whiskers");
-$dog = new Dog("Buddy");
+// $cat = new Cat("Whiskers");
+// $dog = new Dog("Buddy");
 
-$cat->eat();
-$dog->sleep();
+// $cat->eat();
+// $dog->sleep();
 
-$cat->meow();
-$dog->bark();
+// $cat->meow();
+// $dog->bark();
 
 // // 1.3
 // interface Shape
@@ -187,43 +187,43 @@ $dog->bark();
 // echo "Area of Circle: " . $circle->calculateArea() . "<br>";
 // echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
 
-// 1.6
-interface Shape
-{
-    public function calculateArea();
-}
+// // 1.6
+// interface Shape
+// {
+//     public function calculateArea();
+// }
 
-interface Color
-{
-    public function getColor();
-}
+// interface Color
+// {
+//     public function getColor();
+// }
 
-class Circle implements Shape, Color
-{
-    private $radius;
-    private $color;
+// class Circle implements Shape, Color
+// {
+//     private $radius;
+//     private $color;
 
-    public function __construct($radius, $color)
-    {
-        $this->radius = $radius;
-        $this->color = $color;
-    }
+//     public function __construct($radius, $color)
+//     {
+//         $this->radius = $radius;
+//         $this->color = $color;
+//     }
 
-    public function calculateArea()
-    {
-        return pi() * pow($this->radius, 2);
-    }
+//     public function calculateArea()
+//     {
+//         return pi() * pow($this->radius, 2);
+//     }
 
-    public function getColor()
-    {
-        return $this->color;
-    }
-}
+//     public function getColor()
+//     {
+//         return $this->color;
+//     }
+// }
 
-$circle = new Circle(5, "Blue");
+// $circle = new Circle(5, "Blue");
 
-echo "Area of Circle: " . $circle->calculateArea() . "<br>";
-echo "Color of Circle: " . $circle->getColor() . "<br>";
+// echo "Area of Circle: " . $circle->calculateArea() . "<br>";
+// echo "Color of Circle: " . $circle->getColor() . "<br>";
 
 // 1.7
 class Car
@@ -250,3 +250,39 @@ class Car
 $car = new Car("Toyota");
 
 echo "Brand: " . $car->getBrand() . "<br>";
+
+// 1.8
+class Animal
+{
+    public $name;
+    protected $age;
+    private $color;
+
+    public function __construct($name, $age, $color)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->color = $color;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    protected function getAge()
+    {
+        return $this->age;
+    }
+
+    private function getColor()
+    {
+        return $this->color;
+    }
+}
+
+$animal = new Animal("Dog", 3, "Brown");
+
+echo "Name: " . $animal->name . "<br>";
+echo "Age: " . $animal->getAge() . "<br>";
+echo "Color: " . $animal->getColor() . "<br>";
