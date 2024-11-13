@@ -106,112 +106,26 @@ $dog->bark();
 // printArea($circle);
 // printArea($rectangle);
 
-// 1.4
-class Car
-{
-    private $model;
-    private $color;
-
-    public function __construct($model, $color)
-    {
-        $this->model = $model;
-        $this->color = $color;
-    }
-
-    public function getModel()
-    {
-        return $this->model;
-    }
-
-    public function setColor($color)
-    {
-        $this->color = $color;
-    }
-
-    public function getColor()
-    {
-        return $this->color;
-    }
-}
-
-$car = new Car("Toyota", "Blue");
-
-echo "Model: " . $car->getModel() . "<br>";
-echo "Color: " . $car->getColor() . "<br>";
-
-$car->setColor("Red");
-
-echo "Update Color: " . $car->getColor() . "<br>";
-
-// 1.5
-abstract class Shape
-{
-    abstract public function calculateArea();
-}
-
-class Circle extends Shape
-{
-    private $radius;
-
-    public function __construct($radius)
-    {
-        $this->radius = $radius;
-    }
-    public function calculateArea()
-    {
-        return pi() * pow($this->radius, 2);
-    }
-}
-
-class Rectangle extends Shape
-{
-    private $width;
-    private $height;
-
-    public function __construct($width, $height)
-    {
-
-        $this->width = $width;
-        $this->height = $height;
-    }
-    public function calculateArea()
-    {
-        return $this->width * $this->height;
-    }
-}
-
-
-$circle = new Circle(5);
-$rectangle = new Rectangle(4, 6);
-
-echo "Area of Circle: " . $circle->calculateArea() . "<br>";
-echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
-
-// // 1.6
-// interface Shape
+// // 1.4
+// class Car
 // {
-//     public function calculateArea();
-// }
-
-// interface Color
-// {
-//     public function getColor();
-// }
-
-// class Circle implements Shape, Color
-// {
-//     private $radius;
+//     private $model;
 //     private $color;
 
-//     public function __construct($radius, $color)
+//     public function __construct($model, $color)
 //     {
-//         $this->radius = $radius;
+//         $this->model = $model;
 //         $this->color = $color;
 //     }
 
-//     public function calculateArea()
+//     public function getModel()
 //     {
-//         return pi() * pow($this->radius, 2);
+//         return $this->model;
+//     }
+
+//     public function setColor($color)
+//     {
+//         $this->color = $color;
 //     }
 
 //     public function getColor()
@@ -220,10 +134,96 @@ echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
 //     }
 // }
 
-// $circle = new Circle(5, "Blue");
+// $car = new Car("Toyota", "Blue");
+
+// echo "Model: " . $car->getModel() . "<br>";
+// echo "Color: " . $car->getColor() . "<br>";
+
+// $car->setColor("Red");
+
+// echo "Update Color: " . $car->getColor() . "<br>";
+
+// // 1.5
+// abstract class Shape
+// {
+//     abstract public function calculateArea();
+// }
+
+// class Circle extends Shape
+// {
+//     private $radius;
+
+//     public function __construct($radius)
+//     {
+//         $this->radius = $radius;
+//     }
+//     public function calculateArea()
+//     {
+//         return pi() * pow($this->radius, 2);
+//     }
+// }
+
+// class Rectangle extends Shape
+// {
+//     private $width;
+//     private $height;
+
+//     public function __construct($width, $height)
+//     {
+
+//         $this->width = $width;
+//         $this->height = $height;
+//     }
+//     public function calculateArea()
+//     {
+//         return $this->width * $this->height;
+//     }
+// }
+
+
+// $circle = new Circle(5);
+// $rectangle = new Rectangle(4, 6);
 
 // echo "Area of Circle: " . $circle->calculateArea() . "<br>";
-// echo "Color of Circle: " . $circle->getColor() . "<br>";
+// echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
+
+// 1.6
+interface Shape
+{
+    public function calculateArea();
+}
+
+interface Color
+{
+    public function getColor();
+}
+
+class Circle implements Shape, Color
+{
+    private $radius;
+    private $color;
+
+    public function __construct($radius, $color)
+    {
+        $this->radius = $radius;
+        $this->color = $color;
+    }
+
+    public function calculateArea()
+    {
+        return pi() * pow($this->radius, 2);
+    }
+
+    public function getColor()
+    {
+        return $this->color;
+    }
+}
+
+$circle = new Circle(5, "Blue");
+
+echo "Area of Circle: " . $circle->calculateArea() . "<br>";
+echo "Color of Circle: " . $circle->getColor() . "<br>";
 
 // // 1.7
 // class Car
