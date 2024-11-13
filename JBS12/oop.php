@@ -39,30 +39,30 @@ class Animal
     }
 }
 
-// class Cat extends Animal
-// {
-//     public function meow()
-//     {
-//         echo $this->name . " says meow!<br>";
-//     }
-// }
+class Cat extends Animal
+{
+    public function meow()
+    {
+        echo $this->name . " says meow!<br>";
+    }
+}
 
-// class Dog extends Animal
-// {
-//     public function bark()
-//     {
-//         echo $this->name . " says woof!<br>";
-//     }
-// }
+class Dog extends Animal
+{
+    public function bark()
+    {
+        echo $this->name . " says woof!<br>";
+    }
+}
 
-// $cat = new Cat("Whiskers");
-// $dog = new Dog("Buddy");
+$cat = new Cat("Whiskers");
+$dog = new Dog("Buddy");
 
-// $cat->eat();
-// $dog->sleep();
+$cat->eat();
+$dog->sleep();
 
-// $cat->meow();
-// $dog->bark();
+$cat->meow();
+$dog->bark();
 
 // // 1.3
 // interface Shape
