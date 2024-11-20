@@ -42,13 +42,6 @@
 </section>
 <div class="modal fade" id="form-data" style="display: none;" aria-hidden="true">
     <form action="action/kategoriAction.php?act=save" method="post" id="form-tambah">
-        <!-- Ukuran Modal
-modal-sm : Modal ukuran kecil
-modal-md : Modal ukuran sedang
-modal-lg : Modal ukuran besar
-modal-xl : Modal ukuran sangat besar
-penerapan setelah class modal-dialog seperti di bawah
--->
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
